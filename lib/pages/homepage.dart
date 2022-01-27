@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("WordPair Generator"),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.list))],
         ),
         body: RandomWords());
   }

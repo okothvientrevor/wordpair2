@@ -27,14 +27,24 @@ class _RandomWordsState extends State<RandomWords> {
         final pair = _randomWordPairs[index];
         final alredySaved = _savedWordPairs.contains(pair);
         return ListTile(
-            title: Text(
-              pair.asPascalCase,
-              style: TextStyle(fontSize: 18.0),
-            ),
-            trailing: Icon(
-              alredySaved ? Icons.favorite : Icons.favorite_border,
-              color: alredySaved ? Colors.red : null,
-            ));
+          title: Text(
+            pair.asPascalCase,
+            style: TextStyle(fontSize: 18.0),
+          ),
+          trailing: Icon(
+            alredySaved ? Icons.favorite : Icons.favorite_border,
+            color: alredySaved ? Colors.red : null,
+          ),
+          onTap: () {
+            setState(() {
+              if (alredySaved) {
+                _savedWordPairs.remove(pair);
+              } else {
+                _savedWordPairs.add(pair);
+              }
+            });
+          },
+        );
       },
     );
   }
